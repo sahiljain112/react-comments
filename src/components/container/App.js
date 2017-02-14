@@ -3,7 +3,7 @@ import Button from '../presentational/Button'
 import Modal from '../presentational/Modal'
 import './App.css'
 
-const Wrapper = (Component) => class App extends Component {
+const Wrapper = (Component, comments = []) => class App extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -18,11 +18,22 @@ const Wrapper = (Component) => class App extends Component {
   }
 
   render() {
+    const { isModalVisible } = this.state
+    const modalContent = comments.map(comment => {
+      return (<li> {comment} </li>)
+    })
     return (
       <div className="container">
         <Button onClick={() => this.toggleModal()} >
           <i className="fa fa-comment-o" aria-hidden="true"></i>
         </Button>
+        <Modal isOpen={isModalVisible} closeModal={() => this.toggleModal()}>
+          <div className="modal-header">
+            <ul>
+              { modalContent }
+            </ul>
+          </div>
+        </Modal>
         <Component {...this.props} />
       </div>
     );
