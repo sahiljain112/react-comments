@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import Modal from 'react-modal'
 
-const ModalPane = ({ isOpen, closeModal, contentLabel, children }) => {
+const ModalPane = ({ isModalVisible, closeModal, contentLabel, children }) => {
   return(
     <Modal
-      isOpen={isOpen}
+      isOpen={true}
       onRequestClose={closeModal}
       shouldCloseOnOverlayClick={true}
       contentLabel={contentLabel} >

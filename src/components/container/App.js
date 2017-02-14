@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../presentational/Button'
-import Modal from '../presentational/Modal'
+import ModalPane from '../presentational/Modal'
 import './App.css'
 
 const Wrapper = (Component, comments = []) => class App extends Component {
@@ -9,6 +9,7 @@ const Wrapper = (Component, comments = []) => class App extends Component {
     this.state = {
       isModalVisible: false
     }
+    this.toggleModal = this.toggleModal.bind(this)
   }
 
   toggleModal() {
@@ -19,21 +20,21 @@ const Wrapper = (Component, comments = []) => class App extends Component {
 
   render() {
     const { isModalVisible } = this.state
-    const modalContent = comments.map(comment => {
-      return (<li> {comment} </li>)
+    const modalContent = comments.map((comment, key) => {
+      return (<li key={key}> {comment} </li>)
     })
     return (
       <div className="container">
-        <Button onClick={() => this.toggleModal()} >
+        <Button onClick={this.toggleModal} >
           <i className="fa fa-comment-o" aria-hidden="true"></i>
         </Button>
-        <Modal isOpen={isModalVisible} closeModal={() => this.toggleModal()}>
+        <ModalPane isOpen={isModalVisible} closeModal={this.toggleModal} contentLabel={'Todo list'}>
           <div className="modal-header">
             <ul>
               { modalContent }
             </ul>
           </div>
-        </Modal>
+        </ModalPane>
         <Component {...this.props} />
       </div>
     );

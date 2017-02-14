@@ -17,6 +17,7 @@ class Input extends Component {
     this.state = {
       value: ''
     }
+    this.onChange = this.onChange.bind(this)
   }
 
   onChange(event){
@@ -28,7 +29,7 @@ class Input extends Component {
   render() {
     const { value } = this.state
     return (
-      <input style={inputStyle} type="text" value={value} placeholder={'Enter text'} />
+      <input style={inputStyle} onChange={this.onChange} type="text" value={value} placeholder={'Enter text'} />
     )
  }
 }
