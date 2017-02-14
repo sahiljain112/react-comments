@@ -4,20 +4,12 @@ import Modal from 'react-modal'
 
 const ModalPane = ({ isOpen, closeModal, contentLabel, children }) => {
 
-  const styles = {
-    overlay: {
-      minWidth: '50px',
-      minHeight: '50px',
-      width: 'auto',
-      height: 'auto',
-      maxHeight: '300px',
-      maxWidth: '300px',
-      position: 'fixed',
-    },
+  const contentStyle = {
     content: {
-      overflow: 'scroll',
-      position: 'absolute',
-      padding: '5px',
+      right: '50px',
+      top: '50px',
+      left: '50px',
+      bottom: '50px',
     }
   }
 
@@ -26,7 +18,7 @@ const ModalPane = ({ isOpen, closeModal, contentLabel, children }) => {
       isOpen={isOpen}
       onRequestClose={closeModal}
       shouldCloseOnOverlayClick={true}
-      style={ _.merge(Modal.defaultStyle, styles) }
+      style={_.merge(Modal.defaultStyles, contentStyle)}
       contentLabel={contentLabel} >
       { children }
     </Modal>
