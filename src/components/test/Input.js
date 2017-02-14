@@ -6,7 +6,7 @@ const inputStyle = {
   borderRadius: '10px',
   lineHeight: '24px',
   fontSize: '16px',
-  margin: '20px 20px',
+  margin: '10px 1020px',
   outline: 'none',
   border: '1px solid #dddddd',
 }

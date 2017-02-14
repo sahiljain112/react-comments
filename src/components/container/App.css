@@ -1,8 +1,19 @@
 .container {
   margin: 20px;
+  border: 1px dotted #c2c2c2;
+  position: relative;
 }
 
 .modal-header {
-  text-align: center;
   font: 16px 'Montserrat'
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  margin: 0 5px;
+  list-style: none;
+  padding: 5px;
 }
